@@ -4,10 +4,13 @@
   "description": "Creating a music site mockup",
   "main": "index.html",
   "scripts": {
+    "build": "npm run clean && npm run usemin",
+    "clean": "rimraf dist",
     "lite": "lite-server",
     "scss": "node-sass -o css/ css/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run watch:all",
+    "usemin": "usemin index.html -d dist --htmlmin -o dist/index.html",
     "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
     "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\""
   },
@@ -25,7 +28,9 @@
     "lite-server": "^2.5.4",
     "node-sass": "^4.14.1",
     "onchange": "^7.0.0",
-    "parallelshell": "^3.0.1"
+    "parallelshell": "^3.0.1",
+    "rimraf": "^3.0.2",
+    "usemin-cli": "^0.6.0"
   },
   "dependencies": {
     "bootstrap": "^4.5.2",
