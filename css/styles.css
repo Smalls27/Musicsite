@@ -7,6 +7,12 @@ body {
 .getSkinnier {
   width: 700px; }
 
+.marginItUp {
+  margin-top: 100px; }
+
+.makeTaller {
+  height: 30px; }
+
 .artist {
   background-color: #bc9b22; }
 
@@ -15,7 +21,7 @@ body {
 
 img {
   width: 100%;
-  height: 20%; }
+  height: 21%; }
 
 #progress {
   width: 80%;
@@ -28,3 +34,25 @@ img {
   width: 100%;
   height: 100%;
   background-color: #393bbe; }
+
+.noDesign {
+  list-style-type: none; }
+
+ul {
+  background-color: #bc9b22;
+  margin-top: 12px;
+  overflow: scroll; }
+
+li {
+  background-color: #bc9b22; }
+
+li:hover {
+  background-color: black;
+  color: white; }
+
+.active {
+  background-color: #646464; }
+
+.buffer {
+  padding-top: 2px;
+  padding-left: 7px; }
