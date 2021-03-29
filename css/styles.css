@@ -1,58 +1,63 @@
 body {
-  color: black; }
+  color: black;
+}
 
 .getTaller {
-  height: 100px; }
+  height: 100px;
+}
 
 .getSkinnier {
-  width: 700px; }
+  width: 700px;
+}
 
 .marginItUp {
-  margin-top: 100px; }
+  margin-top: 100px;
+}
+
+.progress {
+  margin-top: 4px;
+}
 
 .makeTaller {
-  height: 30px; }
+  height: 30px;
+  list-style-type: none;
+}
 
 .artist {
-  background-color: #bc9b22; }
+  background-color: #bc9b22;
+}
 
 .artistSong {
-  background-color: #188897; }
+  background-color: #188897;
+}
 
 img {
   width: 100%;
-  height: 21%; }
+  height: 21%;
+}
 
-#progress {
-  width: 80%;
-  height: 80%;
-  margin-top: 2px;
-  border: 3px solid black;
-  border-radius: 3px; }
-
-#progressBar {
+.progress-bar {
   width: 100%;
-  height: 100%;
-  background-color: #393bbe; }
+}
 
 .noDesign {
-  list-style-type: none; }
+  list-style-type: none;
+}
 
 ul {
-  background-color: #bc9b22;
   margin-top: 12px;
-  overflow: scroll; }
-
-li {
-  background-color: #bc9b22; }
+}
 
 li:hover {
   background-color: black;
-  color: white; }
+  color: white;
+}
 
 .active {
-  background-color: #646464; }
+  background-color: #646464;
+}
 
 .buffer {
   padding-top: 2px;
-  padding-left: 7px; }
+  padding-left: 0px;
+}

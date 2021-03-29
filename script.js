@@ -1,6 +1,5 @@
 // Variables that will be used in this project. //////////////////////////////////////////////////////////
-const songs = document.getElementById("playlist").children;
-const songPlaying = document.getElementById("playlist").childNodes;
+const songs = document.getElementsByTagName("li");
 const audio = document.querySelectorAll("audio");
 
 // The object that will house all of the functionality of the player. //////////////////////////////////////////////////////////
@@ -19,6 +18,15 @@ const musicPlayer = {
             artist.innerHTML = event.target.parentElement.getAttribute("artist");
             artistSong.innerHTML = (event.target.parentElement.firstElementChild.innerHTML);
         }
+    },
+
+    dynamicWidth(event) {
+        const musicDuration = event.target.nextElementSibling.duration;
+        const musicCurrentTime = event.target.nextElementSibling.currentTime;
+        const elementWidth = document.getElementById("progress").offsetWidth;
+        changeWidth = 50 / musicDuration;
+        newDuration = (elementWidth / musicDuration * musicCurrentTime) / changeWidth;
+        return newDuration;
     },
 
     deactivate() {
@@ -42,7 +50,29 @@ const musicPlayer = {
             song.pause();
             song.currentTime = 0;
         });
-    }    
+    },
+    
+    songVitals(event) {
+        event.target.nextElementSibling.ontimeupdate = function() {songDuration(event)};
+
+        function songDuration(event) {
+            const duration = document.getElementById("progressBar");
+            const songCounter = document.getElementById("duration");
+            let s = parseInt(event.target.nextElementSibling.currentTime % 60);
+            let m = parseInt(event.target.nextElementSibling.currentTime / 60) % 60;
+    
+            if (s < 10) {
+                s = "0" + s;
+            }
+
+            if (s === 50) {
+                event.target.nextElementSibling.pause();
+                event.target.nextElementSibling.currentTime = 0;
+            }
+            songCounter.innerHTML = `${m}:${s}`;
+            duration.style.width = parseInt(Math.floor(musicPlayer.dynamicWidth(event))) + "px";
+        }
+    }
 }
 
 // The addEventListener with a for loop that will control the functioanlity of the player. //////////////////////////////////////////////////////////addEventListener("click", () => {
@@ -52,7 +82,8 @@ for (let i = 0; i < songs.length; i++) {
         musicPlayer.deactivate();
         musicPlayer.activate(event);
         musicPlayer.playSong(event);
+        musicPlayer.songVitals(event);
     });
 }
-            
+
         

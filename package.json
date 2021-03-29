@@ -2,7 +2,7 @@
   "name": "musicsite",
   "version": "1.0.0",
   "description": "Creating a music site mockup",
-  "main": "index.html",
+  "main": "index1.html",
   "scripts": {
     "build": "npm run clean && npm run usemin",
     "clean": "rimraf dist",
