@@ -33,8 +33,8 @@ const musicPlayer = {
         const musicDuration = event.target.nextElementSibling.duration;
         const musicCurrentTime = event.target.nextElementSibling.currentTime;
         const elementWidth = document.getElementById("progress").offsetWidth;
-        changeWidth = 50 / musicDuration;
-        newDuration = (elementWidth / musicDuration * musicCurrentTime) / changeWidth;
+        constantDuration = 50 / musicDuration;
+        newDuration = (elementWidth / musicDuration * musicCurrentTime) / constantDuration;
         return newDuration;
     },
 
