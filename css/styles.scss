@@ -1,8 +1,9 @@
 $text-color: rgb(0, 0, 0);
 $back-color: rgb(57, 59, 190);
+$purchase-color: rgb(166, 0, 225);
 
 body {
-  color: $text-color;
+  color: black;
 }
 
 .getTaller {
@@ -17,16 +18,21 @@ body {
   margin-top: 100px;
 }
 
+.progress {
+  margin-top: 4px;
+}
+
 .makeTaller {
   height: 30px;
+  list-style-type: none;
 }
 
 .artist {
-  background-color: rgb(188, 155, 34);
+  background-color: #bc9b22;
 }
 
 .artistSong {
-  background-color: rgb(24, 136, 151);
+  background-color: #188897;
 }
 
 img {
@@ -34,18 +40,8 @@ img {
   height: 21%;
 }
 
-#progress {
-  width: 200px;
-  height: 80%;
-  margin-top: 2px;
-  border: 3px solid $text-color;
-  border-radius: 3px;
-}
-
-#progressBar {
-  width: 194px;
-  height: 100%;
-  background-color: $back-color;
+.progress-bar {
+  width: 100%;
 }
 
 .noDesign {
@@ -53,25 +49,43 @@ img {
 }
 
 ul {
-  background-color: rgb(188, 155, 34);
   margin-top: 12px;
-  overflow: scroll;
-}
-
-li {
-  background-color: rgb(188, 155, 34);
 }
 
 li:hover {
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
+  background-color: black;
+  color: white;
 }
 
 .active {
-  background-color: rgb(100, 100, 100);
+  background-color: #646464;
 }
 
 .buffer {
   padding-top: 2px;
-  padding-left: 7px;
+  padding-left: 0px;
+}
+
+.dropLogin {
+  margin-top: 200px;
+  animation-name: dropLogin;
+  animation-duration: 2s;
+}
+
+.purchaseColor {
+  background-color: $purchase-color;
+  margin-top: 10px;
+}
+
+.btn-secondary {
+  margin-top: 10px;
+}
+
+@keyframes dropLogin {
+  from {
+    margin-top: 0px;
+  }
+  to {
+    margin-top: 200px;
+  }
 }

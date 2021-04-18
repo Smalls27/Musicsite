@@ -1,63 +1,66 @@
 body {
-  color: black;
-}
+  color: black; }
 
 .getTaller {
-  height: 100px;
-}
+  height: 100px; }
 
 .getSkinnier {
-  width: 700px;
-}
+  width: 700px; }
 
 .marginItUp {
-  margin-top: 100px;
-}
+  margin-top: 100px; }
 
 .progress {
-  margin-top: 4px;
-}
+  margin-top: 4px; }
 
 .makeTaller {
   height: 30px;
-  list-style-type: none;
-}
+  list-style-type: none; }
 
 .artist {
-  background-color: #bc9b22;
-}
+  background-color: #bc9b22; }
 
 .artistSong {
-  background-color: #188897;
-}
+  background-color: #188897; }
 
 img {
   width: 100%;
-  height: 21%;
-}
+  height: 21%; }
 
 .progress-bar {
-  width: 100%;
-}
+  width: 100%; }
 
 .noDesign {
-  list-style-type: none;
-}
+  list-style-type: none; }
 
 ul {
-  margin-top: 12px;
-}
+  margin-top: 12px; }
 
 li:hover {
   background-color: black;
-  color: white;
-}
+  color: white; }
 
 .active {
-  background-color: #646464;
-}
+  background-color: #646464; }
 
 .buffer {
   padding-top: 2px;
-  padding-left: 0px;
-}
+  padding-left: 0px; }
+
+.dropLogin {
+  margin-top: 200px;
+  animation-name: dropLogin;
+  animation-duration: 2s; }
+
+.purchaseColor {
+  background-color: #a600e1;
+  margin-top: 10px; }
+
+.btn-secondary {
+  margin-top: 10px; }
+
+@keyframes dropLogin {
+  from {
+    margin-top: 0px; }
+  to {
+    margin-top: 200px; } }

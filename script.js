@@ -1,12 +1,19 @@
 // Variables that will be used in this project. //////////////////////////////////////////////////////////
 const songs = document.getElementsByTagName("li");
 const audio = document.querySelectorAll("audio");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const loginButton = document.getElementById("button");
 
 // The object that will house all of the functionality of the player. //////////////////////////////////////////////////////////
 
 const musicPlayer = {
     activate(event) {
         if (event.target.getAttribute("class") !== "active") {
+            const id = document.createAttribute("id");
+            id.value = "selected"
+
+            event.target.setAttributeNode(id);
             event.target.setAttribute("class", "buffer makeTaller active");
             showSongInfo(event);
         }
@@ -14,9 +21,11 @@ const musicPlayer = {
         function showSongInfo(event) {
             let artist = document.getElementById("artist");
             let artistSong = document.getElementById("artistSong");
+            let songId = document.getElementById("songId");
 
             artist.innerHTML = event.target.parentElement.getAttribute("artist");
             artistSong.innerHTML = (event.target.parentElement.firstElementChild.innerHTML);
+            songId.innerHTML = `${artist.innerHTML} - ${artistSong.innerHTML}`;
         }
     },
 
@@ -33,6 +42,7 @@ const musicPlayer = {
         for (let i = 0; i < songs.length; i++) {
             if (songs[i].firstElementChild.getAttribute("class") === "buffer makeTaller active") {
                 songs[i].firstElementChild.setAttribute("class", "buffer makeTaller");
+                songs[i].firstElementChild.removeAttribute("id");
             }
         }
     },
@@ -41,7 +51,23 @@ const musicPlayer = {
         for (let i = 0; i < songs.length; i++) {
             if (event.target.parentElement.contains(audio[i])) {
                 event.target.parentElement.lastElementChild.play();
+                purchaseSong();
             } 
+        }
+
+        function purchaseSong() {
+            const button = document.getElementsByTagName("button")[0];
+            const song1 = document.getElementById("selected");
+
+            if (song1) {
+                button.setAttribute("class", "btn btn-block purchaseColor")
+            }
+
+            button.addEventListener("click", () => {
+                if (button.getAttribute("class") === "btn btn-block purchaseColor") {
+                    $("#purchaseModal").modal("show");
+                }
+            })
         }
     },
 
@@ -72,7 +98,7 @@ const musicPlayer = {
             songCounter.innerHTML = `${m}:${s}`;
             duration.style.width = parseInt(Math.floor(musicPlayer.dynamicWidth(event))) + "px";
         }
-    }
+    },
 }
 
 // The addEventListener with a for loop that will control the functioanlity of the player. //////////////////////////////////////////////////////////addEventListener("click", () => {
@@ -86,4 +112,24 @@ for (let i = 0; i < songs.length; i++) {
     });
 }
 
-        
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///// Code below this line pertains to the login page ////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Function used to validate the login form. //////////////////////////////////////////////////////////
+
+const formValidate = () => {
+    if (!email.value) {
+        alert("Email must be present");
+    }
+
+    if (!password.value) {
+        alert("Password must be entered");
+    }
+
+    if (email.value && password.value) {
+        window.location.assign("/Index.html")
+    }
+}
+
+loginButton.addEventListener("click", formValidate);
